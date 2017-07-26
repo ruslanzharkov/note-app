@@ -1,0 +1,47 @@
+.Note {
+    width: 250px;
+    height: auto;
+    float: left;
+    background-color: yellow;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 2px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: box-shadow .3s;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    &:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+        .Note__del-icon {
+            display: block;
+        }
+        .Note__update-icon {
+            display: block;
+        }
+    }
+}
+
+.Note__title {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.Note__del-icon {
+    position: absolute;
+    top:5px;
+    right:5px;
+    display: none;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+.Note__update-icon {
+    position: absolute;
+    top:5px;
+    right:18px;
+    display: none;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+    size: 20px;
+}

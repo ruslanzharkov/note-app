@@ -1,0 +1,16 @@
+.ColorPicker {
+  display: flex;
+}
+.ColorPicker__swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin: 3px;
+  cursor: pointer;
+}
+.ColorPicker__swatch:hover {
+  border: 2px solid grey;
+}
+.ColorPicker__swatch.selected {
+  border: 2px solid grey;
+}
