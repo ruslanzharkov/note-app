@@ -15,7 +15,8 @@ function formatNote(note) {
         title: note.title,
         text: note.text,
         color: note.color || '#ffffff',
-        createdAt: note.createdAt
+        createdAt: note.createdAt,
+        checked: note.checked
     };
 }
 

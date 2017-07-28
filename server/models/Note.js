@@ -6,7 +6,8 @@ const NoteSchema = new Schema({
     title     : { type: String },
     text      : { type: String, required: true },
     color     : { type: String },
-    createdAt : { type: Date }
+    createdAt : { type: Date },
+    checked   : { type: Boolean }
 });
 
 mongoose.model('Note', NoteSchema);
