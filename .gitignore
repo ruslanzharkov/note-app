@@ -1,5 +1,6 @@
 /.idea/
 node_modules/
+client/dist/
 script
 npm-debug.log
-client/dist/
+
