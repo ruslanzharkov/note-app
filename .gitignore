@@ -2,3 +2,4 @@
 node_modules/
 script
 npm-debug.log
+/notes-app/client/dist/

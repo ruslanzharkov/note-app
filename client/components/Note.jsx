@@ -15,6 +15,7 @@ const Note = React.createClass({
                 <span className='Note__del-icon' onClick={this.props.onDelete}> &#10007; </span>
                 <span className='Note__update-icon' onClick={this.props.onUpdate}> &#9998; </span>
                 <span className='Note__check-icon' onClick={this.props.onCheck}> &#10003; </span>
+                <br />
                 {
                     this.props.title
                     ?
