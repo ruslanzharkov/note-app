@@ -23,6 +23,10 @@ app.get('/notes', (req, res) => {
     db.listNotes().then(data => res.send(data));
 });
 
+app.get('/noteschecked', (req, res) =>{
+    db.listCheckedNotes().then(data => res.send(data));
+});
+
 app.post('/notes', (req, res) => {
     db.createNote(req.body).then(data => res.send(data));
 });

@@ -37,6 +37,10 @@ const App = React.createClass({
     getInitialState() {
         return getStateFromFlux();
         isOpen: false;
+        noteId: '';
+        noteTitle: '';
+        noteText: '';
+        noteColor: '';
     },
 
     openModal() {
@@ -72,7 +76,28 @@ const App = React.createClass({
     },
 
     handleNoteUpdate(notes) {
-        NotesActions.updateNote(notes);
+        if (this.state.isOpen)
+        {
+            const updatedNote = {
+                id: this.state.noteId,
+                title: this.state.noteTitle,
+                text: this.state.noteText,
+                color: this.state.noteColor
+            };
+            NotesActions.updateNote(updatedNote);
+            this.hideModal();
+        } else {
+            NotesActions.updateNote(notes);
+        }
+        
+    },
+
+    handleGetNote(notes) {
+        this.state.noteId = notes.id;
+        this.state.noteTitle = notes.title;
+        this.state.noteText = notes.text;
+        this.state.noteColor = notes.color;
+        this.openModal();
     },
 
     handleCheckNote(notes) {
@@ -89,15 +114,15 @@ const App = React.createClass({
     },
 
     handleTextChange(event) {
-        this.setState({ text: event.target.value });
+        this.setState({ noteText: event.target.value });
     },
 
     handleTitleChange(event) {
-        this.setState({ title: event.target.value});
+        this.setState({ noteTitle: event.target.value});
     },
 
-    handleColorChange(color) {
-        this.setState({ color });
+    handleColorChange(noteColor) {
+        this.setState({ noteColor });
     },
 
     handleShowCheckedNotes(notes) {
@@ -123,25 +148,25 @@ const App = React.createClass({
                             type='text'
                             className="NoteEditor__title"
                             placeholder="Enter title"
-                            value={this.props.title}
+                            value={this.state.noteTitle}
                             onChange={this.handleTitleChange}
                         />
                         <textarea
                             placeholder="Enter note text"
                             rows={5}
-                            value={this.props.text}
+                            value={this.state.noteText}
                             className="NoteEditor__text"
                             onChange={this.handleTextChange}
                         />
                         <ColorPicker
-                            value={this.state.color}
+                            value={this.state.noteColor}
                             onChange={this.handleColorChange}
                         />
                     </div>
                 </ModalBody>
                 <ModalFooter>
                     
-                    <button className='btn-update'>
+                    <button className='btn-update' onClick={this.handleNoteUpdate}>
                         Update Note
                     </button>
                 </ModalFooter>
@@ -152,7 +177,7 @@ const App = React.createClass({
                 <NotesGrid notes={this.state.notes}
                            onNoteDelete={this.handleNoteDelete}
                            onNoteCheck={this.handleCheckNote}
-                           onNoteUpdate={this.openModal}
+                           onNoteUpdate={this.handleGetNote}
                 />
             </div>
         );

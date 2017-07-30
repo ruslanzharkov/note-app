@@ -6,6 +6,10 @@ export default {
         return axios.get(`${apiPrefix}/notes`);
     },
 
+    listCheckedNotes() {
+        return axios.get(`${apiPrefix}/noteschecked`);
+    },
+
     createNote(data) {
         return axios.post(`${apiPrefix}/notes`, data);
     },

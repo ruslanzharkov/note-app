@@ -14,6 +14,10 @@ export function listNotes(id) {
     return Note.find();
 }
 
+export function listCheckedNotes() {
+    return Note.find({"checked": true});
+}
+
 export function createNote(data) {
     const note = new Note({
         title: data.title,
